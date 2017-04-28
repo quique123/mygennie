@@ -20,15 +20,9 @@ app.post('/', function (request, response) {
 
   const assistant = new Assistant({request: request, response: response});
   response.sendStatus(200); // OK
-});
-
-// Start the server
-var server = app.listen(app.get('port'), function () {
-  console.log('App listening on port %s', server.address().port);
-  console.log('Press Ctrl+C to quit.');
-});
-
-function getRandomNumber(min, max) {
+  
+  //////////////////
+  function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -57,4 +51,14 @@ function generateAnswer(assistant) {
   actionMap.set(CHECK_GUESS_ACTION, checkGuess);
 
   assistant.handleRequest(actionMap);
+  //////////////////
+});
+
+// Start the server
+var server = app.listen(app.get('port'), function () {
+  console.log('App listening on port %s', server.address().port);
+  console.log('Press Ctrl+C to quit.');
+});
+
+
   
