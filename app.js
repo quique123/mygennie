@@ -19,7 +19,7 @@ app.post('/', function (request, response) {
   console.log('body: ' + JSON.stringify(request.body));
 
   const assistant = new Assistant({request: request, response: response});
-  response.sendStatus(200); // OK
+  //response.sendStatus(200); // OK
   
   //////////////////
   function getRandomNumber(min, max) {
