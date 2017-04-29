@@ -14,6 +14,10 @@ app.use(bodyParser.json({type: 'application/json'}));
 const GENERATE_ANSWER_ACTION = 'generate_answer';
 const CHECK_GUESS_ACTION = 'check_guess';
 
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 app.post('/', function (request, response) {
   console.log('headers: ' + JSON.stringify(request.headers));
   console.log('body: ' + JSON.stringify(request.body));
@@ -21,9 +25,7 @@ app.post('/', function (request, response) {
   const assistant = new Assistant({request: request, response: response});
   //response.sendStatus(200); // OK
   ////////////////////////
-  function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+  
 
 function generateAnswer(assistant) {
     console.log('generateAnswer');
